@@ -1,4 +1,4 @@
-# toBoolean
+# @jasurbek2208/toboolean
 
 A lightweight utility package for converting string representations of `true` or `false` into boolean values. This package handles various edge cases, including case-insensitive strings, null/undefined inputs, and invalid strings.
 
@@ -7,13 +7,7 @@ A lightweight utility package for converting string representations of `true` or
 Install the package via npm or yarn:
 
 ```bash
-npm install toboolean
-```
-
-or
-
-```bash
-yarn add toboolean
+npm install @jasurbek2208/toboolean
 ```
 
 ## Usage
@@ -21,7 +15,7 @@ yarn add toboolean
 ### Importing the Function
 
 ```typescript
-import { toBoolean } from "toboolean";
+import { toBoolean } from "@jasurbek2208/toboolean";
 ```
 
 ### Function Signature

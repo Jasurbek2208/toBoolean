@@ -8,16 +8,12 @@
  *`false` for all other inputs including `null`, `undefined`,
  *or non-boolean strings.
  * @example
- * // Standard cases
- * toBoolean('true')       //true
- * toBoolean('false')      //false
- * // Case-insensitive and trims whitespace
- * toBoolean(' TRUE ')     //true
- * toBoolean(' False ')    //false
- * // Handles null, undefined, and invalid strings
- * toBoolean(null)         //false
- * toBoolean(undefined)    //false
+ * toBoolean('true')//true
+ * toBoolean('false')//false
+ * toBoolean(' TRUE ')//true
+ * toBoolean(' False ')//false
+ * toBoolean(null)//false
+ * toBoolean(undefined)//false
  * toBoolean('random text')//false
  */
 export const toBoolean=(text:string|boolean|null|undefined):boolean=>typeof text==="boolean"?text:text===null||text===undefined?false:text?.trim()?.toLowerCase()==="true";
-toBoolean
