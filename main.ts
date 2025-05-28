@@ -4,4 +4,4 @@
 *@example toBoolean('true')//true
 *toBoolean(' False ')//false
 *@see{@link https://github.com/Jasurbek2208/toBoolean}*/
-export const toBoolean=(text:string|boolean|null|undefined):boolean=>typeof text==="boolean"?text:text===null||text===undefined?false:text?.trim()?.toLowerCase()==="true";
+export const toBoolean=(text:string|boolean|null|undefined):boolean=>typeof text==='boolean'?text:text===null||text===undefined?false:typeof text!=='string'?!!text:text?.trim()?.toLowerCase()==='true'
