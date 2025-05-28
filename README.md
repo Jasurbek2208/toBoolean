@@ -1,80 +1,38 @@
 # @jasurbek2208/toboolean
-A lightweight utility package for converting string representations of `true` or `false` into boolean values. This package handles various edge cases, including case-insensitive strings, null/undefined inputs, and invalid strings.
+Lightweight utility to convert inputs to booleans, handling case-insensitive strings and edge cases.
 
-## Installation
+## Install
 ```bash
 npm install @jasurbek2208/toboolean
 ```
 
 ## Usage
-
-### Importing the Function
 ```typescript
-import { toBoolean } from "@jasurbek2208/toboolean";
+import { toBoolean } from "@jasurbek2208/toboolean"
+
+toBoolean("true") // true
+toBoolean("FalSE") // false
+toBoolean(null) // false
+toBoolean(undefined) // false
+toBoolean("random") // false
+toBoolean(true) // true
+toBoolean({}) // false
+toBoolean({ name: "Jasur" }) // true
+toBoolean([]) // false
+toBoolean([1]) // true
+toBoolean(0) // false
+toBoolean(1) // true
 ```
 
-### Function Signature
-```typescript
-toBoolean(text: string | boolean | null | undefined): boolean
-```
+## API
+### `toBoolean(text: string | boolean | number | object | null | undefined): boolean`
+- **Input**: String, boolean, number, object, array, `null`, or `undefined`.
+- **Returns**: `true` for `"true"` (case-insensitive), non-empty arrays/objects, or truthy non-strings; `false` otherwise.
 
-### Parameters
-- **`text`**: The input to be converted to a boolean. Accepts:
-  - A `string` (e.g., `'true'`, `'false'`)
-  - A `null` or `undefined` value
-  - A boolean (`true` or `false`)
+## Features
+- Case-insensitive, trims whitespace.
+- Handles `null`, `undefined`, invalid inputs.
+- Lightweight.
 
-### Returns
-- `true` if the input string equals `"true"` (case-insensitive).
-- `false` for all other inputs, including `null`, `undefined`, and invalid strings.
----
-
-## Examples
-
-### Convert String to Boolean
-```typescript
-toBoolean("true");//Returns: true
-toBoolean("false");//Returns: false
-```
-
-### Case-Insensitive and Trims Whitespace
-```typescript
-toBoolean("  TRUE  ");//Returns: true
-toBoolean("  False ");//Returns: false
-```
-
-### Handle Null and Undefined
-```typescript
-toBoolean(null);//Returns: false
-toBoolean(undefined);//Returns: false
-```
-
-### Invalid or Non-Boolean Strings
-```typescript
-toBoolean("random text");//Returns: false
-toBoolean("yes");//Returns: false
-```
-
-### Boolean Input (Already Boolean)
-```typescript
-toBoolean(true);//Returns: true
-toBoolean(false);//Returns: false
-```
----
-
-## Why Use `toBoolean`?
-- **Case Insensitivity**: Works with variations like `'TRUE'`, `'True'`, or `'true'`.
-- **Error Prevention**: Safely handles invalid inputs without throwing errors.
-- **Whitespace Trimming**: Processes inputs like `' true '` correctly.
-- **Flexibility**: Handles `null`, `undefined`, and boolean values directly.
-- **Lightweight**: Minimal overhead for your project.
----
-
-## Contributing
-Feel free to contribute by submitting issues or creating pull requests. Make sure to follow the contribution guidelines.
-
-### Development
-Clone the repository:
-```bash
-git clone https://github.com/Jasurbek2208/toBolean.git
-```
+## Contribute
+Submit issues/PRs to [github.com/Jasurbek2208/toBoolean](https://github.com/Jasurbek2208/toBoolean).

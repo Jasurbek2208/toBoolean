@@ -1,7 +1,17 @@
-/**Converts a string representation of `true` or `false` into a boolean. This function is case-insensitive and trims any extra whitespace. It also handles null, undefined, and non-boolean strings gracefully.
-*@param text -The string to be converted to a boolean. Can also accept `null`, `undefined`, or a boolean value.
-*@returns`true` if the input string equals "true" (case-insensitive), `false` for all other inputs including `null`, `undefined`, or non-boolean strings.
-*@example toBoolean('true')//true
-*toBoolean(' False ')//false
+/**Converts input to boolean. Case-insensitive, trims whitespace.
+*@param text - Input (string, boolean, number, object, null, undefined).
+*@returns `true` for string "true" (case-insensitive), non-empty array/object, or truthy non-string; `false` otherwise.
+*@example toBoolean("true") // true
+*toBoolean("FalSE") // false
+*toBoolean(null) // false
+toBoolean(undefined) // false
+toBoolean("random") // false
+toBoolean(true) // true
+toBoolean({}) // false
+toBoolean({name:"Jasur"}) // true
+toBoolean([]) // false
+toBoolean([1]) // true
+toBoolean(0) // false
+toBoolean(1) // true
 *@see{@link https://github.com/Jasurbek2208/toBoolean}*/
-export const toBoolean=(text:string|boolean|null|undefined):boolean=>typeof text==='boolean'?text:text===null||text===undefined?false:typeof text!=='string'?!!text:text?.trim()?.toLowerCase()==='true'
+export const toBoolean=(text:boolean|string|number|Object|null|undefined):boolean=>typeof text==='boolean'?typeof text==='object'?text:Array?.isArray(text)?text?.length>0:Object?.keys(text)?.length>0:typeof text!=='string'?!!text:text?.trim()?.toLowerCase()==='true'
