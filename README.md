@@ -11,13 +11,13 @@ npm install @jasurbek2208/toboolean
 import { toBoolean } from '@jasurbek2208/toboolean'
 
 toBoolean('true')//true
-toBoolean('FalSE')//false
+toBoolean(' FalSE ')//false
 toBoolean(null)//false
 toBoolean(undefined)//false
 toBoolean('random')//false
 toBoolean(true)//true
 toBoolean({})//false
-toBoolean({ name: 'Jasur' })//true
+toBoolean({name:'Jasur'})//true
 toBoolean([])//false
 toBoolean([1])//true
 toBoolean(0)//false
