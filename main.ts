@@ -15,4 +15,4 @@ toBoolean(' FalSE '|''|{}|[]|0|null|undefined)
 *toBooleanOnly('true'|true)
 
 //everything else is false
-*@see{@link https://github.com/Jasurbek2208/toBoolean}*/export const toBooleanOnly=(t:string|boolean|null|undefined):boolean=>!!(typeof t=='boolean'?t:typeof t=='string'?t?.trim()?.toLowerCase()=='true':false)
+*@see{@link https://github.com/Jasurbek2208/toBoolean}*/export const toBooleanOnly=(t:string|boolean|null|undefined):boolean=>typeof t=='boolean'?t:typeof t=='string'?t?.trim()?.toLowerCase()=='true':false
