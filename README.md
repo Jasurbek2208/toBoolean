@@ -6,28 +6,23 @@ npm install @jasurbek2208/toboolean
 ```
 ## Usage
 ```typescript
-import { toBoolean } from '@jasurbek2208/toboolean'
+import { toBoolean, toBooleanOnly } from '@jasurbek2208/toboolean'
 
-//true results:
-toBoolean('true')
-toBoolean({age:2})
-toBoolean(true)
-toBoolean([1])
-toBoolean(1)
+//toBoolean — more permissive:
+toBoolean('true'|'str '|{age:2}|true|[1]|1)//true results
+toBoolean(' FalSE '|''|{}|[]|0|null|undefined)//false results
 
-//false results:
-toBoolean(' FalSE ')
-toBoolean(null)
-toBoolean(undefined)
-toBoolean('str')
-toBoolean({})
-toBoolean([])
-toBoolean(0)
+//toBooleanOnly — strict string/boolean parsing:
+toBooleanOnly('true'|true)//true results
+//everything else is false
 ```
 ## API
 ### `toBoolean(text: string | boolean | number | object | null | undefined): boolean`
 - **Input**: String, boolean, number, object, array, `null`, or `undefined`.
 - **Returns**: `true` for `'true'` (case-insensitive), non-empty arrays/objects, or truthy non-strings; `false` otherwise.
+### `toBooleanOnly(text: string | boolean | null | undefined): boolean`
+- **Input**: String, boolean, `null`, or `undefined`.
+- **Returns**: `true` if the input is the boolean `true` or the string `'true'` (case-insensitive); `false` otherwise.
 ## Features
 - Case-insensitive, trims whitespace.
 - Handles `null`,`undefined`, invalid inputs.
